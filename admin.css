@@ -1,0 +1,373 @@
+/* ==================== ADMIN STYLES ==================== */
+
+.admin-page {
+    background: #f5f5f5;
+}
+
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ==================== SIDEBAR ==================== */
+.admin-sidebar {
+    width: 250px;
+    background: #2c3e50;
+    color: white;
+    padding: 0;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
+    z-index: 99;
+}
+
+.sidebar-brand {
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid #34495e;
+}
+
+.sidebar-brand h2 {
+    font-size: 1.3rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 1rem 0;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: all 0.3s;
+    border-left: 3px solid transparent;
+}
+
+.menu-item:hover {
+    background: #34495e;
+    border-left-color: #667eea;
+    padding-left: 1.5rem;
+}
+
+.menu-item.active {
+    background: #667eea;
+    border-left-color: #667eea;
+    font-weight: bold;
+}
+
+.menu-item.logout {
+    margin-top: auto;
+    border-top: 1px solid #34495e;
+}
+
+.menu-item i {
+    width: 20px;
+    text-align: center;
+}
+
+/* ==================== ADMIN CONTENT ==================== */
+.admin-content {
+    flex: 1;
+    margin-left: 250px;
+    padding: 2rem;
+}
+
+.admin-content h1 {
+    color: #333;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+/* ==================== STATS GRID ==================== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-left: 4px solid #667eea;
+}
+
+.stat-card i {
+    font-size: 2.5rem;
+    color: #667eea;
+    min-width: 50px;
+    text-align: center;
+}
+
+.stat-card.warning {
+    border-left-color: #f39c12;
+}
+
+.stat-card.warning i {
+    color: #f39c12;
+}
+
+.stat-card.success {
+    border-left-color: #27ae60;
+}
+
+.stat-card.success i {
+    color: #27ae60;
+}
+
+.stat-card.info {
+    border-left-color: #3498db;
+}
+
+.stat-card.info i {
+    color: #3498db;
+}
+
+.stat-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.25rem;
+}
+
+.stat-card p {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* ==================== ADMIN CARD ==================== */
+.admin-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.admin-card h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+/* ==================== ADMIN TABLE ==================== */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table thead {
+    background: #f5f5f5;
+}
+
+.admin-table th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: bold;
+    color: #333;
+    border-bottom: 2px solid #ddd;
+}
+
+.admin-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.admin-table tr:hover {
+    background: #f9f9f9;
+}
+
+.admin-table select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* ==================== FILTER BUTTONS ==================== */
+.filter-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-buttons .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+}
+
+/* ==================== FORMS IN ADMIN ==================== */
+.admin-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.form-row.full {
+    grid-template-columns: 1fr;
+}
+
+/* ==================== ACTION BUTTONS IN TABLES ==================== */
+.action-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.btn-edit,
+.btn-delete,
+.btn-view {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.btn-edit {
+    background: #3498db;
+    color: white;
+}
+
+.btn-delete {
+    background: #e74c3c;
+    color: white;
+}
+
+.btn-view {
+    background: #95a5a6;
+    color: white;
+}
+
+/* ==================== MODALS ==================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.modal-header h2 {
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+}
+
+/* ==================== RESPONSIVE ADMIN ==================== */
+@media (max-width: 768px) {
+    .admin-sidebar {
+        width: 200px;
+    }
+
+    .admin-content {
+        margin-left: 200px;
+        padding: 1rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        padding: 1rem;
+    }
+
+    .stat-card i {
+        font-size: 2rem;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-sidebar {
+        width: 150px;
+    }
+
+    .admin-content {
+        margin-left: 150px;
+        padding: 0.5rem;
+    }
+
+    .sidebar-brand h2 {
+        font-size: 1rem;
+    }
+
+    .menu-item {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .admin-card {
+        padding: 1rem;
+    }
+
+    .filter-buttons {
+        flex-direction: column;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+}

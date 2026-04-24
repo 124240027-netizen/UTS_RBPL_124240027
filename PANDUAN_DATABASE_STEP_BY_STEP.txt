@@ -1,0 +1,318 @@
+═══════════════════════════════════════════════════════════════════════════
+                    🗄️ PANDUAN SETUP DATABASE RANTAUGRAFI
+                      Langkah demi Langkah (Step by Step)
+═══════════════════════════════════════════════════════════════════════════
+
+⏱️ WAKTU ESTIMASI: 5-10 MENIT
+
+PERSIAPAN AWAL:
+===============
+
+Pastikan Anda sudah:
+  ✅ Menginstall XAMPP
+  ✅ File Rantaugrafi sudah ada di C:\xampp\htdocs\Rantaugrafi\
+  ✅ File database.sql sudah ada di folder tersebut
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 1: JALANKAN XAMPP
+======================
+
+1. Buka XAMPP Control Panel
+   📍 Lokasi: C:\xampp\xampp-control.exe
+   
+2. Di jendela Control Panel, Anda akan melihat:
+   ┌─────────────────────────────────────┐
+   │ Apache          [ Start ]  [ Stop ]  │
+   │ MySQL           [ Start ]  [ Stop ]  │
+   │ FileZilla       [ Start ]  [ Stop ]  │
+   │ Mercury Mail    [ Start ]  [ Stop ]  │
+   └─────────────────────────────────────┘
+
+3. Klik tombol "Start" di samping MySQL
+   - Tunggu sampai status berubah menjadi hijau (Running)
+   - Jika sudah start, jangan diklik lagi
+
+4. Klik tombol "Start" di samping Apache
+   - Tunggu sampai status berubah menjadi hijau (Running)
+
+✅ SELESAI STEP 1 - Kedua service sudah berjalan
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 2: BUKA PHPMYADMIN
+=======================
+
+1. Buka browser Anda (Chrome, Firefox, Edge, dll)
+
+2. Ketik di address bar (bagian atas):
+   http://localhost/phpmyadmin
+
+3. Tekan ENTER
+
+4. Jika berhasil, Anda akan melihat:
+   - Halaman phpMyAdmin dengan logo MySQL
+   - Di sebelah kiri ada menu "New", "Databases", "Import", dll
+   - Jika belum login, masukkan:
+     • Username: root
+     • Password: (kosongkan/biarkan kosong)
+   - Klik "Go"
+
+✅ SELESAI STEP 2 - phpMyAdmin sudah terbuka
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 3: BUAT DATABASE BARU
+==========================
+
+1. Di halaman phpMyAdmin, cari bagian "Create new database"
+   (Biasanya ada di tengah atau atas halaman)
+
+2. Anda akan melihat form seperti ini:
+   ┌──────────────────────────────────────────┐
+   │ Create new database                      │
+   │ Database name: [________________]         │
+   │ Collation: [utf8mb4_unicode_ci ▼]       │
+   │                                [ Create]  │
+   └──────────────────────────────────────────┘
+
+3. Di kotak "Database name", ketik PERSIS:
+   rantaugrafi_db
+   
+   ⚠️ PENTING:
+   - Gunakan huruf kecil
+   - Gunakan underscore (_) bukan spasi
+   - JANGAN ada karakter khusus
+
+4. Untuk "Collation", pastikan sudah dipilih:
+   utf8mb4_unicode_ci
+   (Jika belum, klik dropdown dan pilih itu)
+
+5. Klik tombol "Create"
+
+6. Tunggu beberapa detik...
+   Jika berhasil, Anda akan melihat pesan hijau:
+   "Database rantaugrafi_db has been created."
+
+✅ SELESAI STEP 3 - Database "rantaugrafi_db" sudah dibuat
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 4: IMPORT FILE DATABASE.SQL
+=================================
+
+1. Di sidebar kiri phpMyAdmin, KLIK pada database "rantaugrafi_db"
+   (Seharusnya sudah muncul di list)
+
+2. Setelah diklik, halaman akan berubah dan menampilkan:
+   - Tab "Structure", "SQL", "Search", "Query", "Export", "Import"
+
+3. KLIK TAB "Import" (biasanya yang terakhir)
+
+4. Di halaman Import, Anda akan melihat:
+   ┌────────────────────────────────────┐
+   │ File to import:                    │
+   │ [Choose File]  [Browse...]         │
+   │                                    │
+   │ Charset: [UTF-8  ▼]               │
+   │                                    │
+   │ [ Continue ]  [ Cancel ]           │
+   └────────────────────────────────────┘
+
+5. Klik tombol "Choose File" atau "Browse..."
+
+6. Akan terbuka File Explorer/Windows Explorer
+
+7. NAVIGASI ke folder Rantaugrafi:
+   📍 C:\xampp\htdocs\Rantaugrafi\
+   
+   ⚠️ PASTIKAN BERADA DI FOLDER YANG BENAR:
+   - Di address bar harus terlihat: C:\xampp\htdocs\Rantaugrafi
+   - Jika belum, copy-paste path itu ke address bar
+
+8. CARI FILE BERNAMA "database.sql"
+   - Seharusnya terlihat di folder
+   - File ini berisi semua struktur tabel
+
+9. DOUBLE-CLICK pada file "database.sql"
+   atau pilih dan klik "Open"
+
+10. Kembali ke halaman phpMyAdmin, sekarang file sudah dipilih
+    (Anda bisa lihat nama filenya di kotak)
+
+11. KLIK TOMBOL "Import" atau "Go"
+    (Biasanya di bawah form)
+
+12. TUNGGU PROSES SELESAI...
+    ⏳ Jangan tutup browser atau pindah halaman
+    ⏳ Tunggu sampai Anda melihat pesan sukses
+
+13. JIKA BERHASIL, Anda akan melihat pesan HIJAU:
+    "Import has been successfully finished, 123 queries executed."
+    
+    Atau pesan serupa yang menunjukkan jumlah query yang dijalankan
+
+✅ SELESAI STEP 4 - Database sudah di-import!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+STEP 5: VERIFIKASI DATABASE
+============================
+
+1. Di sidebar kiri, Anda akan melihat "rantaugrafi_db"
+
+2. KLIK untuk memperluas/buka database
+
+3. Anda akan melihat daftar TABEL yang sudah dibuat:
+   ✅ bookings
+   ✅ packages
+   ✅ payments
+   ✅ portfolio
+   ✅ reviews
+   ✅ settings
+   ✅ testimonials
+   ✅ users
+
+4. HITUNG - seharusnya ada 8 TABEL
+
+5. Klik salah satu tabel (misal "users")
+   - Anda akan melihat struktur tabel dengan field-fieldnya
+   - Ini membuktikan database sudah benar
+
+✅ SELESAI STEP 5 - Database sudah terverifikasi!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TROUBLESHOOTING: JIKA ADA MASALAH
+==================================
+
+❌ MASALAH 1: "File tidak ditemukan"
+   SOLUSI:
+   - Pastikan file database.sql ada di folder Rantaugrafi
+   - Cek path: C:\xampp\htdocs\Rantaugrafi\database.sql
+   - Jika belum ada, pastikan sudah download/copy dari project
+
+❌ MASALAH 2: "phpMyAdmin tidak bisa diakses"
+   SOLUSI:
+   - Pastikan MySQL sudah dijalankan (klik Start di XAMPP)
+   - Pastikan Apache sudah dijalankan (klik Start di XAMPP)
+   - Tunggu beberapa detik setelah klik Start
+   - Coba refresh browser (F5)
+   - Coba buka di browser lain
+
+❌ MASALAH 3: "Error saat import"
+   SOLUSI:
+   - Cek error message yang muncul
+   - Biasanya karena:
+     • File rusak → download ulang database.sql
+     • Charset salah → pastikan UTF-8
+     • Database sudah ada tabel → delete database, buat baru
+   - Hubungi support jika masih error
+
+❌ MASALAH 4: "Tabel tidak lengkap setelah import"
+   SOLUSI:
+   - Ulang Step 4 (Import)
+   - Pastikan tunggu sampai benar-benar selesai
+   - Klik refresh untuk melihat tabel terbaru
+
+❌ MASALAH 5: "Lupa/tidak bisa login phpMyAdmin"
+   SOLUSI:
+   - Username: root
+   - Password: (kosong, jangan isi apa-apa)
+   - Klik Go
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CHECKLIST VERIFIKASI
+====================
+
+Setelah selesai, pastikan:
+
+□ XAMPP Apache berjalan (status hijau)
+□ XAMPP MySQL berjalan (status hijau)
+□ phpMyAdmin bisa diakses (http://localhost/phpmyadmin)
+□ Database "rantaugrafi_db" ada
+□ Ada 8 tabel dalam database:
+  □ users
+  □ packages
+  □ bookings
+  □ portfolio
+  □ reviews
+  □ payments
+  □ testimonials
+  □ settings
+□ Semua tabel punya field-field (bukan kosong)
+□ Ada admin user di tabel users:
+  - Email: admin@rantaugrafi.com
+  - Role: admin
+
+✅ JIKA SEMUA ✅, DATABASE SIAP DIGUNAKAN!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+LANGKAH SELANJUTNYA
+===================
+
+Setelah database siap, Anda bisa:
+
+1. Buka website:
+   http://localhost/Rantaugrafi/
+
+2. Test login dengan akun default:
+   Email: admin@rantaugrafi.com
+   Password: password123
+
+3. Akses admin panel:
+   http://localhost/Rantaugrafi/admin/dashboard.php
+
+4. Explore semua fitur
+
+5. UBAH PASSWORD ADMIN (sangat penting!)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+NOTES PENTING
+=============
+
+⚠️ JANGAN:
+  ❌ Hapus atau ubah nama database tanpa alasan
+  ❌ Ubah struktur tabel secara manual
+  ❌ Menggunakan password weak untuk admin
+  ❌ Share database credentials ke orang lain
+
+✅ HARUS:
+  ✅ Backup database setiap minggu
+  ✅ Ubah password admin setelah setup
+  ✅ Monitor ukuran database
+  ✅ Update data secara berkala
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 TIPS
+======
+
+• Bookmark halaman phpMyAdmin untuk akses cepat
+• Simpan credentials database di tempat aman
+• Test semua fitur setelah setup
+• Screenshot konfigurasi untuk referensi
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📞 BUTUH BANTUAN?
+
+Jika ada masalah, kontak:
+  Email: dev@rantaugrafi.com
+  WhatsApp: +62 812-3456-789
+
+Sertakan screenshot error/masalah untuk bantuan lebih cepat.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ SELAMAT!
+
+Database Rantaugrafi sudah siap!
+Website Anda siap untuk digunakan.
+
+Nikmati sistem vendor fotografi yang powerful!
+
+═══════════════════════════════════════════════════════════════════════════

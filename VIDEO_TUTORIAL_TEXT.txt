@@ -1,0 +1,371 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                   📹 VIDEO SETUP DATABASE - TEXT VERSION                   ║
+║                     Ikuti Step demi Step Seperti Video                      ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+🎥 SCENE 1: MEMBUKA XAMPP
+═════════════════════════
+
+[START VIDEO]
+
+📍 FRAME 1: Desktop Windows
+    Anda akan melihat desktop dengan berbagai icon
+
+📍 FRAME 2: Cari XAMPP Control Panel
+    Double-click icon XAMPP atau
+    Buka File Explorer → C:\xampp\ → Double-click xampp-control.exe
+
+📍 FRAME 3: XAMPP Control Panel Terbuka
+    Window baru muncul dengan judul "XAMPP Control Panel"
+    
+    Anda akan melihat list:
+    ┌─────────────────────────────────────────────────┐
+    │   XAMPP Control Panel v3.x                      │
+    ├─────────────────────────────────────────────────┤
+    │                                                 │
+    │  Apache          [ Start ]  [ Stop ] [ Admin ]  │
+    │  MySQL           [ Start ]  [ Stop ] [ Admin ]  │
+    │  FileZilla FTP   [ Start ]  [ Stop ] [ Admin ]  │
+    │  Mercury Mail    [ Start ]  [ Stop ] [ Admin ]  │
+    │                                                 │
+    │  [Checkboxes] Svc  [Checkboxes] Admin          │
+    │                                                 │
+    └─────────────────────────────────────────────────┘
+
+📍 FRAME 4: Klik START pada MySQL
+    Mouse ke atas tombol "Start" yang ada di sebelah MySQL
+    
+    Status MySQL akan berubah:
+    ⏳ Dari: MySQL - [ Start ] ← warna abu-abu
+    ✅ Ke:  MySQL - [ Stop  ] ← warna merah (berarti running)
+    
+    TUNGGU 3-5 DETIK sampai fully started
+
+📍 FRAME 5: Klik START pada Apache
+    Mouse ke atas tombol "Start" yang ada di sebelah Apache
+    
+    Status Apache akan berubah:
+    ⏳ Dari: Apache - [ Start ] ← warna abu-abu
+    ✅ Ke:  Apache - [ Stop  ] ← warna merah (berarti running)
+    
+    TUNGGU 3-5 DETIK sampai fully started
+
+✅ SELESAI SCENE 1 - XAMPP sudah berjalan
+
+[END VIDEO SCENE 1]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎥 SCENE 2: MEMBUKA phpMyAdmin
+══════════════════════════════
+
+[START VIDEO]
+
+📍 FRAME 1: Buka Browser
+    Klik icon browser (Chrome, Firefox, Edge, dll)
+    Browser akan membuka dengan halaman default
+
+📍 FRAME 2: Klik Address Bar
+    Di bagian paling atas browser, ada kotak putih (address bar)
+    Klik sekali untuk aktif
+    
+    Seharusnya teks di dalamnya (jika ada) akan ter-highlight
+
+📍 FRAME 3: Ketik URL phpMyAdmin
+    Ketik PERSIS:
+    http://localhost/phpmyadmin
+    
+    Atau jika sudah ada teks, hapus dulu kemudian ketik
+
+📍 FRAME 4: Tekan ENTER
+    Tekan tombol ENTER di keyboard
+    
+    Browser akan loading (lihat spinner/progress bar)
+    
+⏳ TUNGGU 3-5 DETIK...
+
+📍 FRAME 5: phpMyAdmin Terbuka
+    Halaman phpMyAdmin akan muncul:
+    
+    ┌─────────────────────────────────────────────┐
+    │ 🔍 [Search...]                              │
+    │                                             │
+    │ Databases  |  SQL  |  Status  |  Variables  │
+    │                                             │
+    │ Database  | Action                          │
+    │ ─────────────────────                       │
+    │ information_schema | [icons]                │
+    │ mysql              | [icons]                │
+    │ performance_schema | [icons]                │
+    │ phpmyadmin         | [icons]                │
+    │                                             │
+    │ [Create new database]                       │
+    │ [Database name: ________________]            │
+    │                                             │
+    └─────────────────────────────────────────────┘
+
+✅ SELESAI SCENE 2 - phpMyAdmin sudah terbuka
+
+[END VIDEO SCENE 2]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎥 SCENE 3: MEMBUAT DATABASE BARU
+══════════════════════════════════
+
+[START VIDEO]
+
+📍 FRAME 1: Lihat Kotak "Create new database"
+    Di bagian bawah halaman phpMyAdmin, ada form:
+    
+    "Create new database"
+    Database name: [________________]
+    Collation: [utf8mb4_unicode_ci ▼]
+    [ Create ]
+
+📍 FRAME 2: Klik Kotak Input
+    Klik di kotak yang ada tulisan "Database name"
+    Cursor akan muncul di kotak
+
+📍 FRAME 3: Ketik Nama Database
+    Ketik PERSIS (jangan ada spasi):
+    rantaugrafi_db
+    
+    Seharusnya di kotak input muncul:
+    rantaugrafi_db
+
+📍 FRAME 4: Set Collation (kalau belum)
+    Lihat dropdown "Collation"
+    Jika belum "utf8mb4_unicode_ci", klik dropdown
+    
+    Cari dan pilih: utf8mb4_unicode_ci
+
+📍 FRAME 5: Klik Tombol Create
+    Mouse ke tombol "Create"
+    Klik sekali
+    
+    Halaman akan loading...
+
+⏳ TUNGGU 2-3 DETIK...
+
+📍 FRAME 6: Database Berhasil Dibuat
+    Anda akan melihat PESAN HIJAU:
+    
+    ✅ "Database rantaugrafi_db has been created."
+    
+    atau
+    
+    ✅ "Database rantaugrafi_db successfully created."
+    
+    Di sidebar kiri, sekarang ada "rantaugrafi_db"
+
+✅ SELESAI SCENE 3 - Database berhasil dibuat
+
+[END VIDEO SCENE 3]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎥 SCENE 4: IMPORT FILE database.sql
+═════════════════════════════════════
+
+[START VIDEO]
+
+📍 FRAME 1: Klik Database rantaugrafi_db
+    Di sidebar kiri, cari dan KLIK "rantaugrafi_db"
+    
+    Halaman akan berubah, menampilkan tabs:
+    Structure | SQL | Search | Query | Export | Import
+
+📍 FRAME 2: Klik Tab Import
+    Di tabs di atas, cari tab "Import" (biasanya terakhir)
+    KLIK tab tersebut
+    
+    Halaman akan berubah menampilkan form import
+
+📍 FRAME 3: Form Import Muncul
+    Anda akan melihat:
+    
+    ┌────────────────────────────────────────┐
+    │ File to import:                        │
+    │ [Choose File]                          │
+    │                                        │
+    │ Charset: [UTF-8 ▼]                    │
+    │                                        │
+    │ [ Continue ]  [ Cancel ]               │
+    └────────────────────────────────────────┘
+
+📍 FRAME 4: Klik "Choose File"
+    Klik tombol "Choose File" atau "Browse..."
+    
+    File Explorer akan terbuka
+    (Jendela baru untuk memilih file)
+
+📍 FRAME 5: Navigate ke Folder Rantaugrafi
+    Anda sekarang di File Explorer
+    
+    Lihat "Address Bar" (paling atas):
+    ┌────────────────────────────────────────┐
+    │ C:\Users\... atau C:\xampp\... etc     │
+    └────────────────────────────────────────┘
+    
+    Anda perlu ke: C:\xampp\htdocs\Rantaugrafi\
+    
+    CARA 1: Ketik di Address Bar
+    - Klik address bar
+    - Hapus semua teks
+    - Ketik: C:\xampp\htdocs\Rantaugrafi
+    - Tekan ENTER
+    
+    CARA 2: Manual navigate
+    - Di panel kiri, cari "This PC"
+    - Double-click "Local Disk (C:)"
+    - Double-click folder "xampp"
+    - Double-click folder "htdocs"
+    - Double-click folder "Rantaugrafi"
+
+📍 FRAME 6: Cari File database.sql
+    Di folder Rantaugrafi, cari file bernama:
+    database.sql
+    
+    Seharusnya terlihat dengan icon dokumen/SQL
+
+📍 FRAME 7: Klik & Open File
+    DOUBLE-CLICK file "database.sql"
+    
+    atau
+    
+    SINGLE-CLICK pilih, lalu klik "Open"
+    
+    File Explorer akan menutup dan kembali ke phpMyAdmin
+
+📍 FRAME 8: Kembali di phpMyAdmin
+    Sekarang di form Import, Anda bisa lihat:
+    - Nama file sudah tertera
+    - Charset: UTF-8
+    
+    Tombol "Continue" atau "Go" siap diklik
+
+📍 FRAME 9: Klik Tombol Continue/Go
+    Klik tombol "Continue" atau "Go"
+    
+    Proses import dimulai...
+    
+⏳ TUNGGU 5-10 DETIK (atau lebih tergantung ukuran file)...
+
+📍 FRAME 10: Import Selesai
+    Anda akan melihat PESAN HIJAU:
+    
+    ✅ "Import has been successfully finished."
+    ✅ "123 queries executed."
+    
+    atau
+    
+    ✅ "Import successful!"
+
+✅ SELESAI SCENE 4 - File berhasil di-import
+
+[END VIDEO SCENE 4]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎥 SCENE 5: VERIFIKASI DATABASE
+════════════════════════════════
+
+[START VIDEO]
+
+📍 FRAME 1: Lihat Sidebar Kiri
+    Di sidebar kiri phpMyAdmin, lihat "rantaugrafi_db"
+    
+    Ada tanda ▶ atau ➕ di sampingnya (expand button)
+
+📍 FRAME 2: Expand Database
+    Klik tanda ▶ atau ➕ untuk expand
+    
+    Database akan membuka dan menampilkan daftar TABEL
+
+📍 FRAME 3: Lihat Daftar Tabel
+    Seharusnya ada 8 TABEL:
+    
+    ✅ bookings
+    ✅ packages
+    ✅ payments
+    ✅ portfolio
+    ✅ reviews
+    ✅ settings
+    ✅ testimonials
+    ✅ users
+    
+    HITUNG - pastikan ada 8 (tidak kurang)
+
+📍 FRAME 4: Klik Salah Satu Tabel (misal "users")
+    KLIK tabel "users" untuk melihat struktur
+    
+    Halaman akan menampilkan field-field tabel:
+    
+    Field       | Type          | Null | Key |
+    ─────────────────────────────────────────
+    id          | int           | No   | PRI |
+    name        | varchar(100)  | No   |     |
+    email       | varchar(100)  | No   | UNI |
+    password    | varchar(255)  | No   |     |
+    ...dan field lainnya
+
+📍 FRAME 5: Lihat Data di Tabel Users
+    Klik tab "Browse" atau "Data"
+    
+    Anda akan melihat data yang ada di tabel:
+    
+    id | name                  | email                    | password | ...
+    ──────────────────────────────────────────────────────────────
+    1  | Admin Rantaugrafi     | admin@rantaugrafi.com    | [hash]   | ...
+    
+    Ini menunjukkan ada admin user sudah ada
+
+✅ SELESAI SCENE 5 - Database terverifikasi
+
+[END VIDEO SCENE 5]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ KESIMPULAN VIDEO TUTORIAL
+════════════════════════════
+
+[START VIDEO]
+
+📍 SUMMARY FRAME:
+    Database Rantaugrafi sudah berhasil dibuat!
+    
+    Apa yang sudah kita lakukan:
+    1. ✅ Jalankan XAMPP (Apache & MySQL)
+    2. ✅ Buka phpMyAdmin
+    3. ✅ Buat database "rantaugrafi_db"
+    4. ✅ Import file "database.sql"
+    5. ✅ Verifikasi 8 tabel ada
+
+📍 NEXT STEP:
+    Sekarang Anda bisa:
+    
+    1. Buka website:
+       http://localhost/Rantaugrafi/
+    
+    2. Login ke admin panel:
+       Email: admin@rantaugrafi.com
+       Password: password123
+    
+    3. Mulai gunakan website!
+
+[END VIDEO]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📌 NOTES:
+═════════
+
+- Video ini berbentuk text/narasi
+- Ikuti frame demi frame sesuai urutan
+- Jika bingung, lihat folder Rantaugrafi untuk lihat file aslinya
+- Screenshot setiap step jika ingin bukti
+
+Durasi total: ~10 menit untuk semua steps
+
+═════════════════════════════════════════════════════════════════════════════

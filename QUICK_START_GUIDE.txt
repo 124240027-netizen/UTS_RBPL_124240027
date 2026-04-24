@@ -1,0 +1,260 @@
+🎬 RANTAUGRAFI - PANDUAN CEPAT SETUP
+====================================
+
+Terima kasih telah menggunakan Rantaugrafi!
+Web vendor fotografi dengan sistem pemesanan ini siap digunakan.
+
+⏱️ SETUP HANYA 5 MENIT!
+=======================
+
+STEP 1: IMPORT DATABASE (2 menit)
+---------------------------------
+1. Buka browser → http://localhost/phpmyadmin
+2. Login dengan username: root (kosongkan password)
+3. Klik "New" atau "Create new database"
+4. Nama: rantaugrafi_db
+5. Charset: utf8mb4_unicode_ci
+6. Klik "Create"
+7. Pilih database rantaugrafi_db
+8. Klik tab "Import"
+9. Browse → pilih file "database.sql"
+10. Klik "Go"
+✅ Tunggu sampai selesai (lihat pesan sukses)
+
+STEP 2: JALANKAN SERVER (1 menit)
+----------------------------------
+1. Buka XAMPP Control Panel
+2. Klik "Start" untuk Apache
+3. Klik "Start" untuk MySQL
+4. Tunggu status jadi "Running" (hijau)
+
+STEP 3: BUKA WEBSITE (1 menit)
+-------------------------------
+Buka browser dan akses:
+📍 http://localhost/Rantaugrafi/
+
+STEP 4: LOGIN ADMIN (1 menit)
+------------------------------
+1. Klik "Admin Panel" atau akses:
+   http://localhost/Rantaugrafi/admin/dashboard.php
+2. Email: admin@rantaugrafi.com
+3. Password: password123
+4. ⚠️ UBAH PASSWORD SETELAH LOGIN!
+
+✅ SELESAI! WEBSITE SUDAH SIAP DIGUNAKAN
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 AKSES CEPAT
+==============
+
+URL Utama:
+- Homepage: http://localhost/Rantaugrafi/
+- Admin: http://localhost/Rantaugrafi/admin/dashboard.php
+- Setup Guide: http://localhost/Rantaugrafi/SETUP.php
+- Quick Start: http://localhost/Rantaugrafi/quickstart.php
+
+Login Admin Default:
+- Email: admin@rantaugrafi.com
+- Password: password123
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 DOKUMENTASI
+==============
+
+1. README.md
+   - Overview proyek
+   - Fitur utama
+   - Struktur file
+
+2. DOCUMENTATION.md
+   - Referensi lengkap
+   - Database schema detail
+   - API & fungsi
+   - Customization
+   - Troubleshooting
+
+3. SETUP.php
+   - Panduan instalasi interaktif
+   - Screenshot langkah-langkah
+   - Troubleshooting umum
+
+4. INSTALLATION_CHECKLIST.txt
+   - Checklist instalasi
+   - Verifikasi setup
+   - File tree lengkap
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ FITUR YANG TERSEDIA
+=====================
+
+UNTUK PELANGGAN:
+✅ Registrasi & Login
+✅ Lihat Portfolio Fotografi
+✅ Pesan Paket Layanan
+✅ Sistem Pembayaran
+✅ Track Status Pesanan
+✅ Berikan Rating & Ulasan
+✅ Dashboard dengan Riwayat Pemesanan
+
+UNTUK ADMIN:
+✅ Dashboard dengan Statistik
+✅ Kelola Pemesanan (Approve/Reject/Complete)
+✅ Kelola Paket (Tambah/Edit/Hapus)
+✅ Kelola Portfolio
+✅ Daftar Pelanggan
+✅ Moderasi Testimoni
+✅ Pengaturan Website
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔒 KEAMANAN
+===========
+
+✅ Password di-hash menggunakan bcrypt
+✅ SQL Injection prevention dengan escape
+✅ Session management untuk autentikasi
+✅ Role-based access control (Admin/Customer)
+✅ Input validation di server & client
+✅ .htaccess rules untuk security
+
+TETAP AMAN:
+- Ubah password admin secara berkala
+- Gunakan HTTPS untuk production
+- Backup database mingguan
+- Monitor folder uploads
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🐛 JIKA ADA MASALAH
+===================
+
+Error 1: "Koneksi Database Gagal"
+→ Pastikan MySQL berjalan di XAMPP
+→ Cek konfigurasi di includes/config.php
+→ Verifikasi database sudah di-import
+
+Error 2: "File Not Found" / 404
+→ Pastikan folder Rantaugrafi ada di C:\xampp\htdocs\
+→ Restart Apache
+→ Cek URL sudah benar
+
+Error 3: "Upload Gambar Tidak Berfungsi"
+→ Set permission folder uploads menjadi 777
+→ Cek ukuran file (max 5MB)
+→ Format harus JPG/PNG/GIF
+
+Error 4: "Lupa Password Admin"
+→ Buka phpMyAdmin
+→ Edit user admin di tabel users
+→ Generate password baru di https://www.bcryptgenerator.com
+
+Untuk Bantuan Lengkap:
+→ Baca file DOCUMENTATION.md
+→ Akses SETUP.php untuk panduan interaktif
+→ Hubungi support: dev@rantaugrafi.com
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 TIPS & TRIK
+==============
+
+1. Test Booking:
+   - Daftar akun customer baru
+   - Klik "Pesan Sekarang" pada paket
+   - Isi form dan lanjutkan
+   - Lihat hasilnya di dashboard
+
+2. Tambah Paket:
+   - Login ke admin
+   - Buka "Kelola Paket"
+   - Klik "Tambah Paket"
+   - Isi form dan simpan
+
+3. Ubah Warna Tema:
+   - Edit assets/css/style.css
+   - Cari #667eea dan #764ba2
+   - Ganti dengan warna pilihan Anda
+
+4. Integrasi Payment:
+   - Gunakan Midtrans, Xendit, atau platform lain
+   - Modifikasi file payment.php
+   - Integrasikan API key
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📞 KONTAK & SUPPORT
+===================
+
+Email: dev@rantaugrafi.com
+WhatsApp: +62 812-3456-789
+Instagram: @rantaugrafi
+
+Jam Kerja: Senin-Jumat, 09:00-17:00 WIB
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 TEKNOLOGI YANG DIGUNAKAN
+===========================
+
+Backend:
+- PHP 7.4+
+- MySQL 5.7+
+- Session Management
+- Bcrypt Password Hashing
+
+Frontend:
+- HTML5
+- CSS3 (Responsive Design)
+- JavaScript (Vanilla)
+- Font Awesome Icons
+
+Framework/Library:
+- Custom CSS Grid
+- Smooth Scrolling
+- Form Validation
+- Responsive Images
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ CHECKLIST SEBELUM GO-LIVE
+============================
+
+□ Database sudah di-import (8 tables)
+□ Server Apache & MySQL berjalan
+□ Website accessible di http://localhost/Rantaugrafi/
+□ Admin panel accessible
+□ Login admin berhasil
+□ Password admin sudah diganti
+□ Tambah paket baru via admin
+□ Test booking process
+□ Test payment page
+□ Test customer dashboard
+□ Cek responsive design (mobile/tablet)
+□ Baca dokumentasi lengkap
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎉 SELAMAT!
+===========
+
+Website vendor fotografi Rantaugrafi Anda
+sudah siap untuk digunakan!
+
+Nikmati fitur-fitur canggih dan sistem
+pemesanan yang mudah digunakan.
+
+Untuk pertanyaan lebih lanjut,
+silakan baca dokumentasi atau hubungi support kami.
+
+Terima kasih telah memilih Rantaugrafi!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Rantaugrafi v1.0
+Copyright © 2026
+All Rights Reserved
+
+Dibuat dengan ❤️ untuk fotografer profesional Indonesia

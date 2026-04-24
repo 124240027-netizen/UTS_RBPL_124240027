@@ -1,0 +1,390 @@
+╔═══════════════════════════════════════════════════════════════════════════╗
+║                    RANTAUGRAFI - SYSTEM ARCHITECTURE                      ║
+║              Web Vendor Fotografi dengan Sistem Pemesanan                  ║
+╚═══════════════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📂 PROJECT STRUCTURE:
+
+Rantaugrafi/
+│
+├─── 📄 PUBLIC FILES (Homepage & Main Pages)
+│    ├── index.php ..................... Homepage dengan hero section
+│    ├── login.php ..................... Login authentication
+│    ├── register.php .................. User registration
+│    ├── dashboard.php ................. Customer dashboard
+│    ├── booking.php ................... Booking form
+│    ├── booking-detail.php ............ Booking detail & review
+│    ├── payment.php ................... Payment page
+│    ├── logout.php .................... Logout handler
+│    └── send_message.php .............. Contact form handler
+│
+├─── 🔐 ADMIN PAGES (admin/ folder)
+│    ├── dashboard.php ................. Admin dashboard with stats
+│    ├── bookings.php .................. Manage bookings
+│    ├── packages.php .................. Manage packages (CRUD)
+│    ├── portfolio.php ................. Manage gallery
+│    ├── customers.php ................. View customer list
+│    ├── testimonials.php .............. Moderate testimonials
+│    └── settings.php .................. Website settings
+│
+├─── ⚙️ BACKEND (includes/ folder)
+│    └── config.php .................... DB config & helper functions
+│
+├─── 🎨 FRONTEND (assets/ folder)
+│    ├── css/
+│    │   ├── style.css ................. Main stylesheet (responsive)
+│    │   └── admin.css ................. Admin stylesheet
+│    ├── js/
+│    │   └── script.js ................. JavaScript utilities
+│    └── images/ ....................... Folder untuk gambar
+│
+├─── 📦 USER UPLOADS
+│    └── uploads/ ....................... Folder untuk upload user
+│
+└─── 📚 DOCUMENTATION
+     ├── START_HERE.txt ................. File untuk dimulai
+     ├── QUICK_START_GUIDE.txt ......... Quick setup (5 menit)
+     ├── SETUP.php ...................... Interactive setup guide
+     ├── README.md ...................... Project overview
+     ├── DOCUMENTATION.md ............... Complete reference
+     ├── INSTALLATION_CHECKLIST.txt .... Verification checklist
+     ├── database.sql ................... Database schema
+     ├── .htaccess ...................... URL rewriting
+     └── quickstart.php ................. Web-based quick start
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔄 USER FLOW DIAGRAM:
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                        VISITOR / CUSTOMER                           │
+└─────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+                         index.php
+                    (Homepage & Hero Section)
+                              │
+                    ┌─────────┼─────────┐
+                    │         │         │
+                    ▼         ▼         ▼
+              Register    Portfolio   Packages
+              (register)  (browse)    (browse)
+                    │         │         │
+                    └─────────┼─────────┘
+                              │
+                              ▼
+                      [Not Logged In?]
+                              │
+                    ┌─────────┴─────────┐
+                    │                   │
+                   NO                   YES
+                    │                   │
+                    ▼                   ▼
+              login.php          booking.php
+            (Login Page)         (Select Package)
+                    │                   │
+                    └─────────┬─────────┘
+                              │
+                              ▼
+                        booking.php
+                    (Fill Booking Form)
+                              │
+                              ▼
+                        payment.php
+                    (Process Payment)
+                              │
+                              ▼
+                       dashboard.php
+                  (View Order Status)
+                              │
+                    ┌─────────┴─────────┐
+                    │                   │
+              Pending Status      Completed
+                    │                   │
+                    ▼                   ▼
+          Tunggu Approval      booking-detail.php
+                              (Give Review/Rating)
+
+┌─────────────────────────────────────────────────────────────────────┐
+│                            ADMIN USER                               │
+└─────────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+                       login.php
+                    (Admin Login)
+                              │
+                              ▼
+                   admin/dashboard.php
+                   (Statistics View)
+                              │
+              ┌───────────────┼───────────────┐
+              │               │               │
+              ▼               ▼               ▼
+         bookings.php   packages.php   portfolio.php
+         (Manage Orders) (Manage Items) (Manage Gallery)
+              │               │               │
+              │               │               │
+         ┌────┴────┐          │          ┌────┴────┐
+         │          │          │          │         │
+         ▼          ▼          ▼          ▼         ▼
+      Approve   Confirm   Add/Edit    Upload   Delete
+      Reject    Delete   Package       Photo    Photo
+      Complete  ...
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🗄️ DATABASE DIAGRAM:
+
+┌──────────────┐
+│    USERS     │
+├──────────────┤
+│ id (PK)      │
+│ name         │
+│ email        │
+│ password     │
+│ phone        │
+│ role         │◄──────────────┐
+│ created_at   │               │
+└──────────────┘               │
+       ▲                       │
+       │                       │
+       │              ┌────────┴──────────┐
+       │              │                   │
+       │              │                   │
+       │      ┌───────▼────────┐    ┌─────▼──────────┐
+       │      │    BOOKINGS    │    │     REVIEWS    │
+       │      ├────────────────┤    ├────────────────┤
+       │      │ id (PK)        │    │ id (PK)        │
+       │      │ user_id (FK)───┼────┤ booking_id (FK)│
+       │      │ package_id (FK)│    │ user_id (FK)───┼─┐
+       │      │ event_date     │    │ rating         │ │
+       │      │ event_type     │    │ comment        │ │
+       │      │ location       │    │ created_at     │ │
+       │      │ notes          │    └────────────────┘ │
+       │      │ status         │                       │
+       │      │ total_price    │                       │
+       │      │ payment_status │                       │
+       │      │ created_at     │                       │
+       │      └────────┬───────┘                       │
+       │               │                               │
+       │      ┌────────▼─────────┐                    │
+       │      │     PAYMENTS     │                    │
+       │      ├──────────────────┤                    │
+       │      │ id (PK)          │                    │
+       │      │ booking_id (FK)  │                    │
+       │      │ amount           │                    │
+       │      │ payment_method   │                    │
+       │      │ transaction_id   │                    │
+       │      │ status           │                    │
+       │      │ created_at       │                    │
+       │      └──────────────────┘                    │
+       │                                              │
+       │              ┌───────────────────────────────┘
+       │              │
+       └──────────────┼─────────────────────┐
+                      │                     │
+              ┌───────▼────────┐    ┌───────▼──────────┐
+              │   PACKAGES     │    │  TESTIMONIALS    │
+              ├────────────────┤    ├──────────────────┤
+              │ id (PK)        │    │ id (PK)          │
+              │ name           │    │ name             │
+              │ description    │    │ email            │
+              │ price          │    │ message          │
+              │ duration       │    │ rating           │
+              │ features       │    │ status           │
+              │ status         │    │ created_at       │
+              │ created_at     │    └──────────────────┘
+              └────────────────┘
+                      │
+              ┌───────▼────────┐
+              │  PORTFOLIO     │
+              ├────────────────┤
+              │ id (PK)        │
+              │ title          │
+              │ description    │
+              │ image_path     │
+              │ category       │
+              │ created_at     │
+              └────────────────┘
+
+              ┌────────────────┐
+              │    SETTINGS    │
+              ├────────────────┤
+              │ id (PK)        │
+              │ setting_key    │
+              │ setting_value  │
+              │ updated_at     │
+              └────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔐 AUTHENTICATION FLOW:
+
+1. REGISTRATION:
+   register.php → Validate input → Hash password (bcrypt) → Insert to DB
+
+2. LOGIN:
+   login.php → Check email → Verify password → Create session → Redirect
+
+3. SESSION MANAGEMENT:
+   $_SESSION['user_id']   → User ID
+   $_SESSION['user_name'] → User name
+   $_SESSION['user_role'] → admin/customer
+
+4. ACCESS CONTROL:
+   is_logged_in()  → Check if user is logged in
+   is_admin()      → Check if user is admin
+   redirect()      → Redirect if not authorized
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 BOOKING WORKFLOW:
+
+1. CUSTOMER SELECTS PACKAGE
+   └─ booking.php (Package selection & form)
+
+2. FILL BOOKING DETAILS
+   └─ Event date, type, location, notes
+
+3. VALIDATE & CALCULATE PRICE
+   └─ Check date validation (must be future)
+   └─ Get package price
+
+4. CREATE BOOKING RECORD
+   └─ INSERT into bookings table
+   └─ Status: pending
+
+5. REDIRECT TO PAYMENT
+   └─ payment.php (payment_id provided)
+
+6. PROCESS PAYMENT
+   └─ Select payment method
+   └─ Confirm transaction
+   └─ UPDATE booking status: payment_status = 'paid'
+
+7. DISPLAY SUCCESS
+   └─ Show booking confirmation
+   └─ Provide order number
+
+8. TRACK IN DASHBOARD
+   └─ dashboard.php (View all bookings)
+   └─ booking-detail.php (View single booking)
+
+9. ADMIN APPROVAL
+   └─ admin/bookings.php
+   └─ Update status: pending → confirmed/rejected
+
+10. COMPLETION & REVIEW
+    └─ After event: admin updates status to 'completed'
+    └─ Customer can give rating & comment
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔄 DATA FLOW:
+
+Customer ────► registration ────► users (DB)
+                                      │
+                                      ▼
+                              ◀────── SESSION ──────► login
+                                      │
+                                      ▼
+                              browse packages ────► packages (DB)
+                                      │
+                                      ▼
+                          create booking form
+                                      │
+                                      ▼
+                          validate & calculate ─► bookings (DB)
+                                      │
+                                      ▼
+                          process payment ────► payments (DB)
+                                      │
+                                      ▼
+                          view in dashboard
+                                      │
+                                      ▼
+                          give review/rating ───► reviews (DB)
+
+Admin ────► login ────► SESSION
+              │
+              ▼
+          approve bookings ─► UPDATE bookings (DB)
+              │
+              ├─► add packages ───► INSERT packages (DB)
+              │
+              ├─► manage portfolio ─► INSERT/DELETE portfolio (DB)
+              │
+              └─► moderate testimonials ─► UPDATE testimonials (DB)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 KEY FEATURES SUMMARY:
+
+CORE FEATURES:
+  ✅ User Authentication (Registration, Login, Logout)
+  ✅ Role-Based Access (Admin, Customer)
+  ✅ Multi-User System
+  ✅ Session Management
+
+CUSTOMER FEATURES:
+  ✅ View Packages & Portfolio
+  ✅ Online Booking
+  ✅ Payment Processing
+  ✅ Order Tracking
+  ✅ Review & Rating
+  ✅ Personal Dashboard
+
+ADMIN FEATURES:
+  ✅ Order Management
+  ✅ Package Management
+  ✅ Portfolio Management
+  ✅ Customer Management
+  ✅ Testimonial Moderation
+  ✅ Statistics & Reports
+  ✅ Website Settings
+
+TECHNICAL FEATURES:
+  ✅ SQL Injection Prevention
+  ✅ XSS Protection
+  ✅ Password Hashing (Bcrypt)
+  ✅ Form Validation
+  ✅ Responsive Design
+  ✅ Mobile-Friendly
+  ✅ Cross-Browser Compatible
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎓 TECHNOLOGY STACK:
+
+BACKEND:
+  • PHP 7.4+ (Object-Oriented & Procedural)
+  • MySQL 5.7+ (Relational Database)
+  • Session Management (PHP Native)
+  • Password Hashing (PHP Bcrypt)
+
+FRONTEND:
+  • HTML5 (Semantic Markup)
+  • CSS3 (Responsive Grid)
+  • JavaScript (DOM Manipulation)
+  • Font Awesome 6.0 (Icons)
+
+FEATURES:
+  • MVC-inspired Architecture
+  • Database Abstraction (MySQLi)
+  • Security Best Practices
+  • Form Validation
+  • Error Handling
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ READY TO USE!
+
+Semua komponen sistem sudah siap.
+Tinggal import database dan jalankan!
+
+Untuk memulai: Baca file START_HERE.txt atau QUICK_START_GUIDE.txt
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
